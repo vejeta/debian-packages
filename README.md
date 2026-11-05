@@ -1,18 +1,18 @@
-# Stremio Debian Packages
+# debian.vejeta.com: unofficial Debian packages
 
-[![CI](https://github.com/vejeta/stremio-debian/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/vejeta/stremio-debian/actions/workflows/ci.yml)
-[![Release](https://github.com/vejeta/stremio-debian/actions/workflows/build-and-release.yml/badge.svg?event=push)](https://github.com/vejeta/stremio-debian/actions/workflows/build-and-release.yml)
+[![CI](https://github.com/vejeta/debian-packages/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/vejeta/debian-packages/actions/workflows/ci.yml)
+[![Release](https://github.com/vejeta/debian-packages/actions/workflows/build-and-release.yml/badge.svg?event=push)](https://github.com/vejeta/debian-packages/actions/workflows/build-and-release.yml)
 [![Repository](https://img.shields.io/badge/APT-debian.vejeta.com-blue)](https://debian.vejeta.com)
 [![Chromium](https://img.shields.io/endpoint?url=https%3A%2F%2Fdebian.vejeta.com%2Fversion.json)](https://security-tracker.debian.org/tracker/source-package/chromium)
-![GitHub release](https://img.shields.io/github/v/release/vejeta/stremio-debian)
-![GitHub Downloads](https://img.shields.io/github/downloads/vejeta/stremio-debian/total)
+![GitHub release](https://img.shields.io/github/v/release/vejeta/debian-packages)
+![GitHub Downloads](https://img.shields.io/github/downloads/vejeta/debian-packages/total)
 ![Repository Status](https://img.shields.io/website?down_message=offline&label=APT%20repository&up_message=online&url=https%3A%2F%2Fdebian.vejeta.com)
-![GitHub issues](https://img.shields.io/github/issues/vejeta/stremio-debian)
+![GitHub issues](https://img.shields.io/github/issues/vejeta/debian-packages)
 ![Platform](https://img.shields.io/badge/platform-Debian%20%7C%20Ubuntu-blue)
 ![Architecture](https://img.shields.io/badge/arch-amd64%20%7C%20arm64-green)
-![License](https://img.shields.io/github/license/vejeta/stremio-debian)
+![License](https://img.shields.io/github/license/vejeta/debian-packages)
 
-Debian packaging for **Stremio** client and engine variants that aren't (yet, or ever) in Debian's own archive.
+Unofficial Debian packages published at https://debian.vejeta.com: **libcef** (tracking Chromium releases), **brow6el**, **rust-cef**, and the archived **Stremio** clients that aren't in Debian's own archive.
 
 **Hosted on GitHub Pages** | **Zero server costs** | **Automatic builds** | **ARM64 support for Raspberry Pi**
 
@@ -295,7 +295,7 @@ Debian archive.
                      ▼
 ┌─────────────────────────────────────────────────────────┐
 │          GitHub Repository (Build System)               │
-│      github.com/vejeta/stremio-debian                   │
+│      github.com/vejeta/debian-packages                  │
 │                                                         │
 │  • GitHub Actions workflows                             │
 │  • Automated package builds                             │
@@ -338,8 +338,8 @@ Debian archive.
 
 ```bash
 # Clone repository
-git clone --recursive https://github.com/vejeta/stremio-debian.git
-cd stremio-debian
+git clone --recursive https://github.com/vejeta/debian-packages.git
+cd debian-packages
 
 # Build stremio-cef (requires Debian sid + CEF packages)
 cd stremio-cef
@@ -370,17 +370,17 @@ dpkg-buildpackage -us -uc
    - [rust-cef](https://salsa.debian.org/mendezr/rust-cef)
    - [brow6el](https://salsa.debian.org/mendezr/brow6el)
 
-2. **Build System**: Submit to [GitHub repository](https://github.com/vejeta/stremio-debian)
+2. **Build System**: Submit to [GitHub repository](https://github.com/vejeta/debian-packages)
 
-3. **Issues**: Report at [GitHub Issues](https://github.com/vejeta/stremio-debian/issues)
+3. **Issues**: Report at [GitHub Issues](https://github.com/vejeta/debian-packages/issues)
 
 ---
 
 ## Support
 
 - **Installation Issues**: Check [debian.vejeta.com](https://debian.vejeta.com)
-- **Build Issues**: See [GitHub Actions logs](https://github.com/vejeta/stremio-debian/actions)
-- **Bug Reports**: [GitHub Issues](https://github.com/vejeta/stremio-debian/issues)
+- **Build Issues**: See [GitHub Actions logs](https://github.com/vejeta/debian-packages/actions)
+- **Bug Reports**: [GitHub Issues](https://github.com/vejeta/debian-packages/issues)
 
 ### Community
 

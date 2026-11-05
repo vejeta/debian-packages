@@ -97,7 +97,7 @@ tar xzf actions-runner-linux-x64-2.330.0.tar.gz
 
 ### 4. Get Registration Token
 
-1. Go to repository: https://github.com/vejeta/stremio-debian
+1. Go to repository: https://github.com/vejeta/debian-packages
 2. Navigate to: Settings > Actions > Runners
 3. Click "New self-hosted runner"
 4. Copy the registration token from the configuration command
@@ -105,7 +105,7 @@ tar xzf actions-runner-linux-x64-2.330.0.tar.gz
 ### 5. Register the Runner
 
 ```bash
-./config.sh --url https://github.com/vejeta/stremio-debian \
+./config.sh --url https://github.com/vejeta/debian-packages \
             --token YOUR_REGISTRATION_TOKEN \
             --labels self-hosted,linux,x64,cef-builder \
             --name cef-build-runner \
@@ -133,7 +133,7 @@ sudo ./svc.sh status
 
 ### 7. Verify Runner is Online
 
-1. Go to: https://github.com/vejeta/stremio-debian/settings/actions/runners
+1. Go to: https://github.com/vejeta/debian-packages/settings/actions/runners
 2. Confirm the runner shows as "Idle" (green dot)
 
 ## Running the Runner Manually (Alternative)
@@ -212,7 +212,7 @@ sudo systemctl status actions.runner.vejeta-stremio-debian.cef-build-runner
 journalctl -u actions.runner.vejeta-stremio-debian.cef-build-runner -f
 
 # Check runner in GitHub UI
-# https://github.com/vejeta/stremio-debian/settings/actions/runners
+# https://github.com/vejeta/debian-packages/settings/actions/runners
 ```
 
 ## Troubleshooting
@@ -273,7 +273,7 @@ gh workflow run "Build CEF Packages"
 
 ### Using GitHub Web UI
 
-1. Go to: https://github.com/vejeta/stremio-debian/actions
+1. Go to: https://github.com/vejeta/debian-packages/actions
 2. Select "Build CEF Packages" workflow
 3. Click "Run workflow"
 4. Click "Run workflow"
@@ -285,7 +285,7 @@ gh workflow run "Build CEF Packages"
 gh run watch
 
 # Or view in browser
-# https://github.com/vejeta/stremio-debian/actions
+# https://github.com/vejeta/debian-packages/actions
 ```
 
 ## Alternative: Cloud-Based Self-Hosted Runner
