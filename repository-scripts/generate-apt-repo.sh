@@ -47,8 +47,16 @@ fi
 # libcef, which is amd64 only: on arm64 the stremio-gtk transitional would be
 # listed but never installable (its dependency stremio-cef is not built there).
 AMD64_ONLY_ALL_PACKAGES="stremio-gtk libcef-common"
+DROP_PACKAGES=""
 if [ "$ARCH" != "amd64" ]; then
-    awk -v drop="$AMD64_ONLY_ALL_PACKAGES" '
+    DROP_PACKAGES="$AMD64_ONLY_ALL_PACKAGES"
+fi
+# The name stremio belongs to Debian's own package (1.x). Our transitional
+# stremio (4.4.181+dfsg-2) has a higher version, so apt would replace Debian's
+# package with it wherever both exist, now or later (backports, next stable).
+DROP_PACKAGES="$DROP_PACKAGES stremio"
+if [ -n "$DROP_PACKAGES" ]; then
+    awk -v drop="$DROP_PACKAGES" '
         BEGIN { RS = ""; ORS = "\n\n"; n = split(drop, d, " "); for (i = 1; i <= n; i++) skip[d[i]] = 1 }
         { if (match($0, /(^|\n)Package: [^\n]+/)) { p = substr($0, RSTART, RLENGTH); sub(/.*Package: /, "", p) } else p = ""
           if (!(p in skip)) print }

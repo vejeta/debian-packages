@@ -509,12 +509,12 @@ jobs:
 
               <h3 id="migrate">Already using this repository?</h3>
 
-              <p><strong>1. Upgrade</strong> (any release). This moves <code>stremio</code> to <code>stremio-qt5</code> and <code>stremio-gtk</code> to <code>stremio-cef</code>; the old names stay as empty transitional packages. It has to be <code>full-upgrade</code>: plain <code>upgrade</code> keeps the packages back.</p>
+              <p><strong>1. Upgrade</strong> (any release). This moves <code>stremio-gtk</code> to <code>stremio-cef</code>; the old name stays as an empty transitional package. It has to be <code>full-upgrade</code>: plain <code>upgrade</code> keeps the package back. This repository no longer publishes a <code>stremio</code> package, so that it cannot replace Debian&rsquo;s. If you have the old Qt5 <code>stremio</code> 4.4.181, install <code>stremio-qt5</code> by name: <code>sudo apt install stremio-qt5</code>.</p>
               <pre>
               sudo apt update
               sudo apt full-upgrade</pre>
 
-              <p><strong>2. Switch to Debian&rsquo;s <code>stremio</code></strong> (sid). First pin this repository below Debian (see <a href="#pin">the pin</a>): without it, the next <code>full-upgrade</code> takes you back to this repository&rsquo;s transitional <code>stremio</code>, whose version number is higher. Then (apt asks you to confirm a downgrade, from the 4.4.181 transitional package to Debian&rsquo;s 1.2.0; that is expected):</p>
+              <p><strong>2. Switch to Debian&rsquo;s <code>stremio</code></strong> (sid). If your installed <code>stremio</code> is 4.4.181 (the old Qt5 client or its transitional package), apt will not replace it by itself, because Debian&rsquo;s version number is lower. Install it explicitly; apt asks you to confirm a downgrade to Debian&rsquo;s 1.x, and that is expected:</p>
               <pre>
               sudo apt update
               sudo apt install stremio/unstable
@@ -570,7 +570,7 @@ jobs:
               <p><strong>Ubuntu&nbsp;24.04&nbsp;(Noble) and KDE&nbsp;Neon users:</strong> use the <code>noble</code> line above &mdash; it provides the working Qt5 <code>stremio-qt5</code> client. The <code>plucky</code> suite currently ships only the experimental Qt6 client.</p>
 
               <h3 id="pin">Step 3: Pin this repository below Debian</h3>
-              <p>So that Debian&rsquo;s own packages always win where both provide one (today: the transitional <code>stremio</code> stub). Create <code>/etc/apt/preferences.d/debian-vejeta-com.pref</code>:</p>
+              <p>So that Debian&rsquo;s own packages always win where both provide one. Create <code>/etc/apt/preferences.d/debian-vejeta-com.pref</code>:</p>
               <pre>
               Package: *
               Pin: origin debian.vejeta.com
@@ -609,7 +609,6 @@ jobs:
                   <tr><td><strong>stremio-gtk</strong></td><td>Empty transitional package &rarr; stremio-cef</td><td>main</td><td>sid</td><td>all</td></tr>
                   <tr><td><strong>stremio-qt6</strong></td><td>Stremio media center (Qt6) &mdash; <span class="experimental">EXPERIMENTAL, work in progress, not recommended</span></td><td>main</td><td>trixie, sid, plucky</td><td>amd64, arm64</td></tr>
                   <tr><td><strong>stremio-qt5</strong></td><td>Stremio media center (Qt5, was stremio) &mdash; archival, use only if it performs better for you than Debian&rsquo;s <code>stremio</code></td><td>main</td><td>bookworm, trixie, testing, sid, noble</td><td>amd64, arm64</td></tr>
-                  <tr><td><strong>stremio</strong></td><td>Empty transitional package &rarr; stremio-qt5 (shadows Debian's own package of the same name until removed &mdash; see pinning above)</td><td>main</td><td>bookworm, trixie, testing, sid, noble</td><td>all</td></tr>
                   <tr><td><strong>stremio-server</strong></td><td>Stremio streaming server &mdash; <span class="experimental">deprecated, see above</span></td><td>non-free</td><td>all</td><td>all</td></tr>
                   <tr><td><strong>brow6el</strong></td><td>Terminal web browser (CEF/Sixel)</td><td>main</td><td>sid</td><td>amd64</td></tr>
                   <tr><td><strong>__CEF_SONAME__</strong></td><td>Chromium Embedded Framework (Chromium __CHROMIUM_VERSION__)</td><td>main</td><td>sid</td><td>amd64</td></tr>
